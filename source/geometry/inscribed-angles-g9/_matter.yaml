@@ -3,6 +3,7 @@ $groups$matter: -g9
   $groups$matter: true
 '2':
   $groups$matter: true
+$date: 2017-01-09
 $authors:
 - Юлий Васильевич Тихонов
 $matter[no-header]:
