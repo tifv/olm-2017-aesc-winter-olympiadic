@@ -1,0 +1,7 @@
+$style:
+- delegate: /_style
+- verbatim: |-
+    \renewcommand\jeolminstitution
+        {СУНЦ МГУ --- Зимняя олимпиадная школа}
+    \renewcommand\jeolmdaterange
+        {8--12 января 2017 г.}

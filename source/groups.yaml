@@ -1,0 +1,21 @@
+!!omap
+
+- $large$common$timetable: true
+- $common$timetable: &common-timetable !!omap
+  - YYYY-MM-DD: [1, 2, 3]
+
+- $large$groups[g9]: true
+- $groups[g9]:
+    name: Настигающие
+    timetable: *common-timetable
+
+- $large$groups[g1011r2]: true
+- $groups[g1011r2]:
+    name: Догоняющие
+    timetable: *common-timetable
+
+- $large$groups[g1011r1]: true
+- $groups[g1011r1]:
+    name: Убегающие
+    timetable: *common-timetable
+

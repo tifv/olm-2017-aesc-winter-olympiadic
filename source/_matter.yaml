@@ -1,0 +1,67 @@
+$groups$matter: true
+
+Integral:
+  $groups$delegate: false
+  $groups$delegate$into: false
+  $groups$matter: false
+  $groups$matter$into: false
+
+  $style:
+  - document class: book
+    options: [10pt, a4paper]
+  - delegate: ..[no-document-class]
+
+  $matter[-add-toc]:
+  - .[add-toc]
+
+  $matter[-integral,add-toc]:
+
+  - error:
+      "'source-link' and 'print' options are incompatible"
+    condition: [source-link, print]
+
+  - preamble package: hyperref
+    condition: -print
+  - preamble verbatim: \hypersetup{colorlinks}
+    provide: hypersetup:colorlinks
+    condition: [source-link, -print]
+
+  - verbatim: \frontmatter
+  - - delegate: /integral[-add-toc]
+  - verbatim: \tableofcontents
+
+  - verbatim: \mainmatter
+  - delegate: .[integral]
+
+  $matter[integral,-complete,-no-olympiads]:
+  - .[no-olympiads]
+
+  $matter[integral]:
+  - delegate: g9
+  - delegate: g1011r2
+  - delegate: g1011r1
+
+  g9:
+    $matter:
+    - verbatim: \chapter{Настигающие (9)}
+      condition: {not: no-chapter}
+    - verbatim: \begin{jeolmlabelspace}{g8}
+    - delegate: /[g9]
+    - verbatim: \end{jeolmlabelspace}
+
+  g1011r1:
+    $matter:
+    - verbatim: \chapter{Убегающие (10/11-1)}
+      condition: {not: no-chapter}
+    - verbatim: \begin{jeolmlabelspace}{g1011r1}
+    - delegate: /[g1011r1]
+    - verbatim: \end{jeolmlabelspace}
+
+  g1011r2:
+    $matter:
+    - verbatim: \chapter{Догоняющие (10/11-2)}
+      condition: {not: no-chapter}
+    - verbatim: \begin{jeolmlabelspace}{g1011r2}
+    - delegate: /[g1011r2]
+    - verbatim: \end{jeolmlabelspace}
+
